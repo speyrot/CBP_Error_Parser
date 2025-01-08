@@ -1,0 +1,93 @@
+# .cursorrules
+
+## Role of the AI
+Claude is the coding assistant. It references the documents in the `/Documentation` directory to:
+- Build out code step by step based on specifications.
+- Follow the structure and workflows described in `Backend_Structure_Doc.md` and `App_Flow_Doc.md`.
+- Generate clean, modular, and maintainable code.
+- Ensure adherence to best practices for Python and React development.
+
+## Tech Stack
+### Frontend
+- React.js (latest stable version)
+- React Dropzone
+- Axios
+- Bootstrap
+
+### Backend
+- Python 3.9+
+- Flask
+- pdfplumber
+- pandas
+- openpyxl
+- uvicorn
+
+### Tools
+- Node.js (for React frontend)
+- Docker (optional for containerization)
+- Netlify (for frontend deployment)
+- PythonAnywhere or Heroku (for backend deployment)
+
+## Guidelines
+1. **Architecture and Modules**:
+   - Follow the module structure specified in `Documentation/Backend_Structure_Doc.md`.
+   - Keep the code modular and logically separated (e.g., `pdf_parser`, `excel_parser`, `matcher`, `file_handler`, and `api` modules).
+
+2. **Data Flow**:
+   - Adhere to the workflows described in `Documentation/App_Flow_Doc.md`.
+   - Ensure seamless communication between the frontend and backend via REST API.
+
+3. **Frontend**:
+   - Keep the frontend lightweight and intuitive as described in `Documentation/Frontend_Guidelines.md`.
+   - Ensure consistent and user-friendly error messages are displayed for invalid uploads or failed backend processing.
+
+4. **Backend**:
+   - Write Python code that prioritizes accuracy and handles edge cases gracefully.
+   - Ensure the API endpoints are well-documented and tested.
+
+5. **Code Quality**:
+   - Use docstrings to document all functions and classes.
+   - Write clear, maintainable, and readable code with meaningful variable and function names.
+   - Include comments for complex or non-obvious logic.
+
+6. **Error Handling**:
+   - Provide descriptive error messages for:
+     - Malformed PDFs.
+     - Missing columns in the Excel file.
+     - Backend processing failures (e.g., no matches found).
+   - Return appropriate HTTP status codes (e.g., 400 for validation errors, 500 for server errors).
+
+7. **Testing**:
+   - Write unit tests for each backend module (e.g., PDF parsing, Excel processing, matching logic).
+   - Test the end-to-end workflow (from file upload to final output).
+   - Include validation for frontend-backend API communication.
+
+8. **Security**:
+   - Avoid storing sensitive data in plain text (e.g., file paths, user data).
+   - Use HTTPS for secure communication if deployed online.
+   - Sanitize all inputs to prevent injection attacks.
+
+9. **Deployment**:
+   - Ensure the application runs seamlessly in both local and deployed environments.
+   - Use lightweight deployment solutions (e.g., Netlify for frontend, PythonAnywhere for backend).
+
+## Limitations
+1. **General**:
+   - Avoid implementing overly complex features not specified in the documentation (e.g., user authentication or advanced database integrations).
+   - Do not store files or sensitive data persistently unless explicitly required.
+
+2. **Frontend**:
+   - Stick to the basic functionality described in `Documentation/Frontend_Guidelines.md`.
+   - Avoid using unnecessary frontend libraries that add overhead.
+
+3. **Backend**:
+   - Do not hardcode file paths or sensitive credentials (use environment variables when needed).
+   - Avoid adding unused or overly complex dependencies.
+
+4. **Testing**:
+   - Focus on tests for expected use cases and critical edge cases; do not overcomplicate test scenarios.
+
+## Extensions (Optional)
+If additional features or enhancements are requested later, they must:
+- Be approved and documented in the `/Documentation` directory.
+- Adhere to the same code quality and modularity standards as the existing system.
