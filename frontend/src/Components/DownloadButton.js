@@ -1,8 +1,11 @@
 import React from 'react';
+import { API_BASE_URL } from '../Services/api';
 
 const DownloadButton = ({ filename, disabled }) => {
     const handleDownload = () => {
-        window.location.href = `http://localhost:5000/api/download/${filename}`;
+        if (filename) {
+            window.location.href = `${API_BASE_URL}/download/${filename}`;
+        }
     };
 
     return (
@@ -11,7 +14,7 @@ const DownloadButton = ({ filename, disabled }) => {
             onClick={handleDownload}
             disabled={disabled}
         >
-            Download Processed File
+            Download Results
         </button>
     );
 };

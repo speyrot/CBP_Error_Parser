@@ -1,21 +1,14 @@
 import os
-from pathlib import Path
 
 # Base directory of the project
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Upload directory for temporary file storage
+# Upload folder configuration
 UPLOAD_FOLDER = os.path.join(BASE_DIR, 'uploads')
+MAX_CONTENT_LENGTH = 100 * 1024 * 1024  # 100MB max file size
 
 # Allowed file extensions
 ALLOWED_EXTENSIONS = {
     'pdf': {'pdf'},
     'excel': {'xlsx', 'xls'}
 }
-
-# Maximum file size (10 MB)
-MAX_CONTENT_LENGTH = 10 * 1024 * 1024
-
-# Create upload directory if it doesn't exist
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
